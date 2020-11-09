@@ -11,25 +11,25 @@
   In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// var values = {
-//   one: 'These',
-//   two: ' are',
-//   three: ' the',
-//   four: ' property',
-//   five: ' values.'
-// } 
+var values = {
+  one: 'These',
+  two: ' are',
+  three: ' the',
+  four: ' property',
+  five: ' values.'
+} 
 
-// for(var key in values) {
-//   console.log(values[key])
-// }
+for(var key in values) {
+  console.log(values[key])
+}
 
 /*
   In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// for(var key in values) {
-//   console.log(key)
-// }
+for(var key in values) {
+  console.log(key)
+}
 
 
 
@@ -41,8 +41,12 @@
 
 function showValues( obj ) {
   //Code Here
+  let strValues = "";
+  for (var key in obj) {
+    strValues += obj[key];
+  }
+  return strValues;
 }
-
 
 
 ////////// PROBLEM 2 //////////
@@ -55,7 +59,14 @@ function showValues( obj ) {
 
 //Code Here
 
-
+function greaterThan10 (obj) {
+  for (var key in obj) {
+    if (obj[key] > 10) {
+      obj[key] = 0;
+    }
+  }
+  return obj;
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -66,6 +77,13 @@ function showValues( obj ) {
 */
 
 //Code Here
+
+function double (obj) {
+  for (var key in obj) {
+    obj[key] = obj[key] * 2;
+  }
+  return obj;
+}
 
 
 
@@ -81,6 +99,16 @@ function showValues( obj ) {
 
 //Code Here
 
+function secrets (obj) {
+  let objString = "";
+  for (var key in obj) {
+    if (key.startsWith("sh")) {
+      objString += obj[key];
+    }
+  }
+  return objString;
+}
+
 
 
 /* 
@@ -89,17 +117,17 @@ function showValues( obj ) {
   Uncomment the example below to see a for in loop deleting all the properties inside an object.
 */
 
-// var deleteAllThethings = {
-//   one: 1,
-//   two: 2,
-//   three: 3
-// }
+var deleteAllThethings = {
+  one: 1,
+  two: 2,
+  three: 3
+}
 
-// for(var key in deleteAllThethings) {
-//   delete deleteAllThethings[key]
-// }
+for(var key in deleteAllThethings) {
+  delete deleteAllThethings[key]
+}
 
-// console.log(deleteAllThethings)
+console.log(deleteAllThethings)
 
 
 
@@ -111,6 +139,11 @@ function showValues( obj ) {
 */
 
 //Code Here
+
+function removePassword (obj) {
+  delete obj.password;
+  return obj;
+}
 
 
 
@@ -131,6 +164,12 @@ var deleteTheBigNumbers = {
 
 //Code Here
 
+for (var key in deleteTheBigNumbers) {
+  if (deleteTheBigNumbers[key] > 100) {
+    delete deleteTheBigNumbers[key];
+  }
+}
+
 
 
 ////////// PROBLEM 7 //////////
@@ -143,6 +182,15 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
+
+function startsWithK (obj) {
+  for (var key in obj) {
+    if (key.startsWith("k")) {
+      delete obj[key];
+    }
+  }
+  return obj;
+}
 
 
 
@@ -158,5 +206,14 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
+
+function hiddenTreasure (obj) {
+  for (var key in obj) {
+    if (!obj[key].includes("treasure")) {
+      delete obj[key];
+    }
+  }
+  return obj;
+}
 
 
